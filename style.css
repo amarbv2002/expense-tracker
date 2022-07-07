@@ -74,7 +74,7 @@ body {
 .header {
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 1;
 }
 
 .footer {
@@ -103,7 +103,7 @@ ul#transaction-ul li {
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
-  text-align: left;
+  align-items: center;
   background-color: #fff;
   color: #212529;
   padding: 10px 15px;
@@ -113,6 +113,37 @@ ul#transaction-ul li {
 }
 
 ul#transaction-ul li:hover {
-  background-color: rgb(235, 235, 235);
+  background-color: rgb(240, 240, 240);
+}
+.modal-body a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
+.modal-body a:hover {
+  color: #5a6ed3 !important;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-decoration: underline;
+}
+
+#howit {
+  position: fixed;
+  right: 5px;
+  z-index: 999;
+}
+
+.info-btn {
+  background: transparent;
+  border: 0;
+  background-color: #ae2aa5;
+  border-radius: 50%;
+  color: wheat;
+  transition: 0.3s;
+}
+
+.info-btn:hover {
+  background-color: #c5850e;
+  color: #212529;
+}
