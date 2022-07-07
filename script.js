@@ -50,7 +50,7 @@ function render() {
     listCreate = document.createElement("li");
     listInside = transaction.appendChild(
       listCreate
-    ).innerHTML = `<span>${eachItem[i].name}</span> <span class="fw-bold">₹${eachItem[i].amount}</span> <button class="btn btn-danger delete-btn">X</button>`;
+    ).innerHTML = `<div><span>${eachItem[i].name}</span> <span class="fw-bold">₹${eachItem[i].amount}</span> <button class="btn btn-danger delete-btn">X</button></div>`;
     if (eachItem[i].type === "income") {
       listCreate.classList.add("income-plus");
     } else if (eachItem[i].type === "expense") {
