@@ -116,14 +116,3 @@ ul#transaction-ul li:hover {
   background-color: rgb(235, 235, 235);
 }
 
-ul#transaction-ul li:hover .btn-danger {
-  opacity: 1;
-}
-
-ul#transaction-ul .btn-danger {
-  position: absolute;
-  left: -43px;
-  top: 3px;
-  opacity: 0;
-  transition: 0.25s;
-}
