@@ -8,6 +8,7 @@ const expenseBtn = document.getElementById("expense-btn");
 const form = document.getElementById("form");
 let inputName = document.getElementById("name");
 let inputAmount = document.getElementById("amount");
+let inputDate = document.getElementById("date");
 
 // Defining the initial state for the application
 let state = {
@@ -41,16 +42,20 @@ function render() {
   income.innerHTML = `₹${state.income}`;
   expense.innerHTML = `₹${state.expense}`;
 
-  let eachItem, listCreate;
+  let eachItem, listCreate, divCreate;
   eachItem = state.transactions;
 
   transaction.innerHTML = "";
 
   for (var i = 0; i < eachItem.length; i++) {
+    divCreate = document.createElement("div");
+    divCreate.innerHTML = `<p>${eachItem[i].date}</p>`;
+    transaction.appendChild(divCreate);
     listCreate = document.createElement("li");
     listInside = transaction.appendChild(
       listCreate
     ).innerHTML = `<div><span>${eachItem[i].name}</span></div> <div><span class="fw-bold">₹${eachItem[i].amount}</span> <button class="btn btn-danger delete-btn ms-2">X</button></div>`;
+
     if (eachItem[i].type === "income") {
       listCreate.classList.add("income-plus");
     } else if (eachItem[i].type === "expense") {
@@ -95,7 +100,7 @@ function initBtns() {
   expenseBtn.addEventListener("click", expenseBtnClicked);
 }
 
-function addTransaction(name, amount, type) {
+function addTransaction(name, amount, date, type) {
   if (name === "") {
     alert("Please enter the transaction name");
   } else if (amount === "") {
@@ -105,6 +110,7 @@ function addTransaction(name, amount, type) {
       id: uniqueID(),
       name: name,
       amount: parseInt(amount),
+      date: date,
       type: type,
     };
     state.transactions.unshift(pushedTransaction);
@@ -116,11 +122,16 @@ function addTransaction(name, amount, type) {
 }
 
 function incomeBtnClicked() {
-  addTransaction(inputName.value, inputAmount.value, "income");
+  addTransaction(inputName.value, inputAmount.value, inputDate.value, "income");
 }
 
 function expenseBtnClicked() {
-  addTransaction(inputName.value, inputAmount.value, "expense");
+  addTransaction(
+    inputName.value,
+    inputAmount.value,
+    inputDate.value,
+    "expense"
+  );
 }
 
 // Deleting the List array on a button click
