@@ -6,6 +6,7 @@ const transaction = document.getElementById("transaction-ul");
 const incomeBtn = document.getElementById("income-btn");
 const expenseBtn = document.getElementById("expense-btn");
 const form = document.getElementById("form");
+const transactionAlert = document.getElementById("transaction-alert");
 let inputName = document.getElementById("name");
 let inputAmount = document.getElementById("amount");
 let inputDate = document.getElementById("date");
@@ -105,6 +106,8 @@ function addTransaction(name, amount, date, type) {
     alert("Please enter the transaction name");
   } else if (amount === "") {
     alert("Please enter the transaction amount");
+  } else if (date === "") {
+    alert("Please enter the date");
   } else {
     let pushedTransaction = {
       id: uniqueID(),
@@ -114,7 +117,9 @@ function addTransaction(name, amount, date, type) {
       type: type,
     };
     state.transactions.unshift(pushedTransaction);
+    transactionAlert.classList.remove("hidden");
   }
+
   updateState();
 
   inputAmount.value = "";
