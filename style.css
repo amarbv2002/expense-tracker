@@ -112,6 +112,13 @@ ul#transaction-ul li {
   cursor: pointer;
 }
 
+ul#transaction-ul p {
+  margin: 0;
+  text-align: right;
+  font-weight: bold;
+  padding: 0 5px 0 0;
+}
+
 ul#transaction-ul li:hover {
   background-color: rgb(240, 240, 240);
 }
@@ -146,4 +153,17 @@ ul#transaction-ul li:hover {
 .info-btn:hover {
   background-color: #c5850e;
   color: #212529;
+}
+
+/* Keyframes start */
+
+.float-ani {
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% {
+    margin-right: 5px;
+    transform: scale(1.4);
+  }
 }
